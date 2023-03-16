@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError('Users must have an email.')
         if password is None:
-            raise TypeError('User must have an email.')
+            raise TypeError('User must have an password.')
         user = self.model(username=username, email= self.normalize_email(email), **kwargs)
         
         user.set_password(password)
@@ -60,7 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['username']
     objects = UserManager()
     def __str__(self):
-        return f"{self.email}"
+        return self.name()
     
     def name (self):
         return f"{self.first_name} {self.last_name}"

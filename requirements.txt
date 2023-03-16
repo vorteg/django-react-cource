@@ -1,4 +1,4 @@
-Django
+Django~=4.1.0
 psycopg2_binary
 djangorestframework
 django-filter
